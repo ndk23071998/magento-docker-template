@@ -1,29 +1,5 @@
 ## Setup
 
-### Automated Setup (New Project)
-
-```bash
-# Create your project directory then go into it:
-mkdir -p ~/Sites/magento
-cd ~/Sites/magento
-
-# Run this automated one-liner from the directory you want to install your project.
-curl -s https://raw.githubusercontent.com/ndk23071998/magento-docker-template/master/template | bash -s -- magento.dev 2.4.6 community
-```
-
-The `magento.test` above defines the hostname to use, and the `2.4.6` defines the Magento version to install. Note that since we need a write to `/etc/hosts` for DNS resolution, you will be prompted for your system password during setup.
-
-After the one-liner above completes running, you should be able to access your site at `https://magento.dev`.
-
-#### Install sample data
-
-After the above installation is complete, run the following lines to install sample data:
-
-```bash
-bin/magento sampledata:deploy
-bin/magento setup:upgrade
-```
-
 ### Manual Setup
 
 Same result as the one-liner above. Just replace `magento.test` references with the hostname that you wish to use.
@@ -64,8 +40,15 @@ bin/download 2.4.6 community
 
 # Run the setup installer for Magento:
 bin/setup magento.dev
+```
 
-open https://magento.dev
+#### Install sample data
+
+After the above installation is complete, run the following lines to install sample data:
+
+```bash
+bin/magento sampledata:deploy
+bin/magento setup:upgrade
 ```
 
 #### Existing Projects
