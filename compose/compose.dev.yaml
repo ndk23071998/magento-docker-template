@@ -14,6 +14,7 @@ services:
       - ./src/dev/tools/grunt/configs:/var/www/html/dev/tools/grunt/configs:cached
       - ./src/nginx.conf.sample:/var/www/html/nginx.conf:cached
       - ./src/package.json.sample:/var/www/html/package.json:cached
+      - ./images/nginx/conf:/etc/nginx/conf.d:cached
       #- ./src/auth.json:/var/www/html/auth.json:cached
       #- ./src/m2-hotfixes:/var/www/html/m2-hotfixes:cached
       #- ./src/patches:/var/www/html/patches:cached
@@ -38,5 +39,7 @@ services:
       - cloudbeaverdata:/opt/cloudbeaver/workspace
     depends_on:
       - db
+    networks:
+      - magento-docker
 volumes:
   cloudbeaverdata:
